@@ -1,3 +1,5 @@
+loggingMode: stdout-json
+
 image:
   repository: quay.io/drsylent/cubix/block5/homework
   pullPolicy: Always

@@ -1,0 +1,3 @@
+A megfelelő logformátum a stdout-json (stdout-json.png), a következő okok miatt:
+- a file (file, és file-json) logolás során az alkalmazás business logjai egyáltalán nem látszódnak a Grafanában, mivel azok nem kerülnek ki a stdoutra
+- az stdout logolás során látszódnak a logok a Grafanában, azonban azok nem jelennek meg strukúrált formában, így nehezebben kereshető
