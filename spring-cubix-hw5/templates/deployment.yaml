@@ -54,7 +54,8 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           startupProbe:
-            tcpSocket:
+            httpGet:
+              path: {{ .Values.startupProbe.path }}
               port: {{ .Values.startupProbe.port }}
             initialDelaySeconds: {{ .Values.startupProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.startupProbe.periodSeconds }}
