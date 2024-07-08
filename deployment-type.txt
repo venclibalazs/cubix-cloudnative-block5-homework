@@ -1,0 +1,3 @@
+A jvm telepítés módot választanám a következők miatt:
+- Cloud native követelmények között szerepelt, hogy ideálisan pár száz megabájt memória használaz a ideális (100Mi), amely a native.yaml limit/request beállításában szerepel
+- BPL_JAVA_NMT_ENABLED false-ra van állítva a jvm-es típusban, ami a dokumentáció alapján egy memory tracking funkció kikapcsolása, ami hasznos lehet cloud környezetben
