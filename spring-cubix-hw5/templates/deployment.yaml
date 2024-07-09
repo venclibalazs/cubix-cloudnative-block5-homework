@@ -25,12 +25,19 @@ spec:
       serviceAccountName: {{ include "spring-cubix-hw5.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+      - name: config
+        configMap:
+          name: {{ include "spring-cubix-hw5.fullname" . }}
       containers:
         - name: {{ .Release.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ required "Image must be set in Values" .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          - name: config
+            mountPath: /config
           env:
           - name: JAVA_OPTS
             value: {{ .Values.javaOpts | quote }}
@@ -44,6 +51,11 @@ spec:
             value: "8080"
           - name: MANAGEMENT_SERVER_PORT
             value: "8081"
+          - name: TARGET_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secret.secretName }}
+                key: {{ .Values.secret.secretKey }}
           ports:
             - name: http
               containerPort: 8080

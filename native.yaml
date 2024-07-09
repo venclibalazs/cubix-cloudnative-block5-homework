@@ -17,6 +17,12 @@ ingress:
 env:
 - name: SERVER_TOMCAT_THREADS_MAX
   value: 50
+- name: SPRING_CONFIG_IMPORT
+  value: /config/application.properties
+
+secret:
+  secretName: hw6secret
+  secretKey: apikey
 
 resources:
   limits:

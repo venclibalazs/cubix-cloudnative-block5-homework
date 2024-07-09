@@ -1,0 +1,3 @@
+A Tempo grafikon alapján az látszik, hogy a Sixth alkalmazás az amely request time-ja a nagyobb:
+- A teljes hívás ideje 759.98 ms
+- Ebből a sixth app válaszideje: 754.33 ms
